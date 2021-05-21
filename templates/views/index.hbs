@@ -1,0 +1,40 @@
+{{!-- hbs expects its files to be in a folder called views which is in the root of the project. The root being the web-server directory. --}}
+{{!--By creating this file we are creating a dynamic file. hbs is basically a better way for writing html for dynamic content --}}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--./css/styles.css means the relative path. The ./ means the current working directory.  -->
+  <!-- /css/styles.css is the absolute path. The / means the root directory. Usually this would mean the root directory of your hard-drive but with websites you don't want people to be able to access files non-related to your website. Hence, the root is actually the public directory in this case. -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/img/weather.png">
+  <title>Document</title>
+</head>
+<body>
+  {{!-- For partials you don't need to add the extension name of the file path. Simply the name of the partial will do --}}
+  {{!-- Below is the syntax to use a partial --}}
+  {{!-- Header will load in the code written in header.hbs. --}}
+  <div class="main-content">
+      {{>header}}  
+
+      <p>Use this site to get your weather!</p>
+
+      <form action="">
+        <input placeholder="Location" type="text">
+        <button>Search</button>
+      </form> 
+
+      <p id="message-1"></p>
+      <p id="message-2"></p>
+
+  </div>
+  
+  {{>footer}}
+
+  <script src="/js/app.js"></script>
+
+</body>
+
+</html>
