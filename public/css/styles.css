@@ -40,6 +40,7 @@ header a {
 
 .portrait {
   width: 250px;
+  border-radius: 50%;
 }
 
 input {
