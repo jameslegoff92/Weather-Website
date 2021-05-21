@@ -22,7 +22,8 @@ weatherForm.addEventListener('submit', (e) => {
     messageTwo.textContent = ''
 
         //when using fetch the url must have http://, otherwise the function won't work. The fetch function in this case allows us to get information from a url, which we can then manipulate at show on the index page of our website. This is done because there is a link on the index.hbs file to this app.js file.
-    fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+        //By getting rid of the beginning component of our url, the localhost:3000/, we are making sure that no matter which hosting website attempts to fetch this url, it should still work. Whether its the localhost or heroku.
+    fetch('/weather?address=' + location).then((response) => {
       //data.error will either return undefined or our error message. undefined = falsy, while a string = truthy. This is how the if statment would be activated or not.
       response.json().then((data) => {
         if(data.error){

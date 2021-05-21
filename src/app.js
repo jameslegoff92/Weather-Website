@@ -7,6 +7,8 @@ const express = require('express')
 const hbs = require('hbs')
 
 const app = express()
+//This is how we would access the port value that heroku wants to give our website. env is for environment variable. It gives us access to the environment variable value. We add the or(||) sign so that even when heroku doesn't assign a port(like when we host our project locally) it'll still work.
+const port = process.env.PORT || 3000
 
 //Local Modules: ./ means current directory, which in this case is src. ./utils/geocode = src/utils/geocode
 const geocode = require('./utils/geocode')
@@ -125,7 +127,7 @@ app.get('*', (req, res) => {
 })
 
 // app.listen will host our code on port 3000, which is perfect for wanting to view our local projects and files from a browser.
-app.listen(3000, () => {
+app.listen(port, () => {
   //The code will run if the website has been successfully hosted on port 3000. It's a good way to let developers know if the website is up and running.
-  console.log('Server is up on port 3000.')
+  console.log('Server is up on port ' + port + ". ")
 })
